@@ -1,0 +1,29 @@
+<cu-custom bgColor="bg-gradual-blue">
+	<view slot="content">天城大校园墙墙汇</view>
+</cu-custom>
+<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+	<swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+		<view class="swiper-item">
+			<image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+			<video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+		</view>
+	</swiper-item>
+</swiper>
+<view class="cu-bar tabbar bg-white shadow foot">
+	<view class="action" bindtap="NavChange" data-cur="basics">
+		<view class='cuIcon-cu-image'>
+			<image src="/images/tabbar/basics{{PageCur=='basics'?'_cur':''}}.png"></image>
+		</view>
+		<view class="{{PageCur=='basics'?'text-green':'text-gray'}}">首页</view>
+	</view>
+	<view class="action text-gray add-action" bindtap="NavChange" data-cur="plugin">
+		<button class="cu-btn cuIcon-attention bg-purple shadow"></button>
+		墙墙宇宙
+	</view>
+	<view class="action" bindtap="NavChange" data-cur="plugin">
+		<view class='cuIcon-cu-image'>
+			<image src="/images/tabbar/plugin{{PageCur=='plugin'?'_cur':''}}.png"></image>
+		</view>
+		<view class="{{PageCur=='plugin'?'text-green':'text-gray'}}">我的</view>
+	</view>
+</view>
